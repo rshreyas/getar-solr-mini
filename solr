@@ -25,3 +25,13 @@ COPY morphline.conf to /etc/hbase-solr/conf
 ADD log4j.logger.org.kitesdk.morphline=TRACE to log4j.properties
 
 sudo hadoop --config /etc/hadoop/conf jar /usr/lib/hbase-solr/tools/hbase-indexer-mr-*-job.jar --conf /etc/hbase/conf/hbase-site.xml -D 'mapred.child.java.opts=-Xmx3000m' --hbase-indexer-file ./morphline-hbase-mapper.xml --zk-host 127.0.0.1/solr --log4j ./log4j.properties --collection getar-cs5604f17-solr-mini-collection --verbose --output-dir hdfs://quickstart.cloudera/user/cloudera/getar_cs5604f17_solr_mini --overwrite-output-dir --shards 1
+
+hadoop fs -get getar_cs5604f17_solr_mini/results/part-00000/data/index index
+
+sudo -u hdfs hadoop fs -rm -r -skipTrash /solr/getar-cs5604f17-solr-mini-collection/core_node1/data/index
+
+sudo -u hdfs hadoop fs -rm -r -skipTrash /solr/getar-cs5604f17-solr-mini-collection/core_node1/data/tlog
+
+sudo -u solr hadoop fs -put index /solr/getar-cs5604f17-solr-mini-collection/core_node1/data/index
+
+sudo service solr-server restart
