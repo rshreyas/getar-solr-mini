@@ -111,21 +111,21 @@
    <field name="text" type="string" indexed="true" stored="false" multiValued="true"/>
 
    <field name="raw_cleantext_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_source_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_geo_1_f" type="float" indexed="true" stored="false"/>
-   <field name="created_time_dt" type="date" indexed="true" stored="true"/>
-   <field name="raw_tweet_id_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_to_user_id_s" type="string" indexed="true" stored="false"/>
+   <field name="raw_source_s" type="string" indexed="true" stored="true"/>
+   <field name="raw_geo_1_f" type="float" indexed="true" stored="true"/>
+   <field name="created_time_dt" type="string" indexed="true" stored="true"/>
+   <field name="raw_tweet_id_s" type="string" indexed="true" stored="true"/>
+   <field name="raw_to_user_id_s" type="string" indexed="true" stored="true"/>
    <field name="archive_source_s" type="string" indexed="true" stored="true"/>
-   <field name="raw_text_s" type="string" indexed="true" stored="false"/>
+   <field name="raw_text_s" type="string" indexed="true" stored="true"/>
    <field name="raw_created_at_s" type="string" indexed="true" stored="false"/>
-   <field name="author_s" type="string" indexed="true" stored="false" multiValued="true"/>
-   <field name="raw_language_s" type="string" indexed="true" stored="false"/>
+   <field name="author_s" type="string" indexed="true" stored="true" multiValued="true"/>
+   <field name="raw_language_s" type="string" indexed="true" stored="true"/>
    <field name="raw_colnum_i" type="int" indexed="true" stored="false"/>
-   <field name="raw_geo_0_f" type="float" indexed="true" stored="false"/>
-   <field name="raw_geo_type_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_profile_image_s" type="string" indexed="true" stored="false"/>
-   <field name="raw_from_user_id_s" type="string" indexed="true" stored="false"/>
+   <field name="raw_geo_0_f" type="float" indexed="true" stored="true"/>
+   <field name="raw_geo_type_s" type="string" indexed="true" stored="true"/>
+   <field name="raw_profile_image_s" type="string" indexed="true" stored="true"/>
+   <field name="raw_from_user_id_s" type="string" indexed="true" stored="true"/>
 
    <field name="text_txt" type="text_general" indexed="true" stored="true" multiValued="true"/>
    <field name="language_s" type="string" indexed="true" stored="true"/>
@@ -146,7 +146,9 @@
    <field name="topic_probability_s" type="string" indexed="true" stored="false" multiValued="true"/>
    <field name="cluster_label_s" type="string" indexed="true" stored="true"/>
    <field name="cluster_probability_s" type="string" indexed="true" stored="true"/>
-   <field name="locations" type="location" indexed="true" stored="true"/>  
+   <field name="locations" type="location" indexed="true" stored="true"/>
+   <field name="locations_0_coordinate" type="double" indexed="true" stored="true"/>
+   <field name="locations_1_coordinate" type="double" indexed="true" stored="true"/>  
  <!--
    <field name="text_txt" type="text_general" indexed="true" stored="true" multiValued="true"/>
    <field name="language_s" type="string" indexed="true" stored="true"/>
@@ -209,7 +211,7 @@
    <dynamicField name="*_ds" type="double" indexed="true"  stored="true"  multiValued="true"/>
 
    <!-- Type used to index the lat and lon components for the "location" FieldType -->
-   <dynamicField name="*_coordinate"  type="tdouble" indexed="true"  stored="false" />
+   <dynamicField name="*_coordinate"  type="tdouble" indexed="true"  stored="true" />
 
    <dynamicField name="*_dt"  type="date"    indexed="true"  stored="true"/>
    <dynamicField name="*_dts" type="date"    indexed="true"  stored="true" multiValued="true"/>
