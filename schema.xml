@@ -146,9 +146,9 @@
    <field name="topic_probability_s" type="string" indexed="true" stored="false" multiValued="true"/>
    <field name="cluster_label_s" type="string" indexed="true" stored="true"/>
    <field name="cluster_probability_s" type="string" indexed="true" stored="true"/>
-   <field name="locations" type="location" indexed="true" stored="true"/>
-   <field name="locations_0_coordinate" type="double" indexed="true" stored="true"/>
-   <field name="locations_1_coordinate" type="double" indexed="true" stored="true"/>  
+   <field name="locations" type="point" indexed="true" stored="true"/>
+   <field name="locations_0_d" type="double" indexed="true" stored="true"/>
+   <field name="locations_1_d" type="double" indexed="true" stored="true"/>  
  <!--
    <field name="text_txt" type="text_general" indexed="true" stored="true" multiValued="true"/>
    <field name="language_s" type="string" indexed="true" stored="true"/>
